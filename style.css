@@ -1,0 +1,79 @@
+/* ===== Tombol Musik Transparan ===== */
+.music-btn {
+    position: fixed; /* Membuatnya melayang */
+    bottom: 30px;    /* Jarak dari bawah layar */
+    right: 30px;     /* Jarak dari kanan layar */
+    z-index: 999;
+
+    /* --- Kode untuk Transparan --- */
+    background: transparent; 
+    backdrop-filter: blur(5px); /* Memberikan efek kaca/blur halus di belakang tombol */
+    /* ----------------------------- */
+
+    color: var(--gold); /* Teks warna emas */
+    border: 1px solid var(--gold); /* Garis luar warna emas */
+    
+    padding: 10px 20px;
+    border-radius: 50px; /* Bentuk membulat seperti pil */
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Efek saat tombol disentuh kursor (hover) */
+.music-btn:hover {
+    background: rgba(231, 144, 15, 0.15); /* Nyala emas transparan */
+    box-shadow: 0 0 10px rgba(231, 144, 15, 0.2); /* Efek cahaya (glow) */
+    transform: translateY(-2px);
+}
+/* Container pembungkus agar teks tidak melebar keluar layar */
+.running-text-container {
+  width: 100%;
+  overflow: hidden; /* Menyembunyikan teks saat berada di luar layar */
+  white-space: nowrap; /* Mencegah teks turun ke bawah (pindah baris) */
+}
+
+/* Elemen teks yang bergerak */
+.running-text {
+  display: inline-block;
+  padding-left: 100%; /* Mulai posisi teks di luar layar sebelah kanan */
+  animation: jalan 10s linear infinite; /* 10s adalah kecepatannya, semakin kecil semakin cepat */
+}
+
+/* Animasi pergerakan dari kanan ke kiri */
+@keyframes jalan {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.hero-content {
+  text-align: center; /* Membuat semua teks di dalamnya rata tengah */
+  max-width: 800px;   /* Membatasi lebar teks agar tidak terlalu melebar */
+  margin: 0 auto;     /* Posisi otomatis di tengah layar */
+}
+
+/* Jika ingin membuat tulisannya tetap bergerak halus ke atas (efek fade-in) tanpa merusak layout */
+.hero-content {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.main-title {
+  white-space: nowrap; /* Mencegah teks turun ke bawah secara otomatis */
+  width: 100%;        /* Membuat lebar elemen memenuhi wadahnya */
+  text-align: center;   /* Posisi teks di tengah */
+}
